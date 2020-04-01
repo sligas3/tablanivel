@@ -1,4 +1,5 @@
 ({
+	// Handler para buscar todas las cuentas
 	doInit: function(component, event, helper) {
 		var action = component.get('c.bscCuentas');
 		action.setCallback(this, function(response) {
@@ -11,6 +12,7 @@
 		$A.enqueueAction(action);
 	},
 
+	// Handler para tomar valores con checkbox tildado
 	selectedAcc: function(component, event, helper) {
 		var nivel1 = [];
 		var nivel2 = [];
@@ -57,6 +59,5 @@
 
 		$A.enqueueAction(actionN1);
 		$A.enqueueAction(actionN2);
-		console.log('nivel1', nivel1, 'nivel2', nivel2);
 	}
 });
