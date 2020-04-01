@@ -59,5 +59,6 @@
 
 		$A.enqueueAction(actionN1);
 		$A.enqueueAction(actionN2);
+		window.location.reload();
 	}
 });
