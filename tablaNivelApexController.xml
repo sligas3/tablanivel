@@ -1,0 +1,36 @@
+public class tablaNivelController {
+	@AuraEnabled
+    public static List<Account> bscCuentas() {
+        List<Account> accList = [SELECT Id, Name, Phone, LastModifiedBy.Name, checkbox__c, nivel__c FROM Account];
+        return accList;
+    }
+    
+	@AuraEnabled
+    
+    public static void actNivel1(List<String> actN1) {
+            List<Account> records = [SELECT Id, nivel__c FROM Account WHERE Id = : actN1];
+                           
+            for (Account record : records) {
+                
+                record.nivel__c = 'Nivel 2';
+                }
+        
+		update records;
+        
+	}
+    
+    @AuraEnabled
+    
+    public static void actNivel2(List<String> actN2) {
+            List<Account> records = [SELECT Id, nivel__c FROM Account WHERE Id = : actN2];
+                           
+            for (Account record : records) {
+                
+                record.nivel__c = 'Nivel 1';
+                }
+        
+		update records;
+        
+	}
+    
+}

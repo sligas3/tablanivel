@@ -1,0 +1,114 @@
+<aura:component controller="tablaNivelController">
+    <aura:attribute name="accountList" type="Account"/>
+        
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+    <div class="slds-m-around_xx-large">
+        <h1 class="slds-text-heading--medium">Cuentas Nivel 1</h1>
+        <br/>
+        <table>
+        	<tr class="slds-text-title--caps">
+                    <th>           
+                        
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Nombre</div>
+                    </th>
+                     <th scope="col">
+                        <div class="slds-truncate" title="Phone">Teléfono</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Ultima Modificacion">Última Modificación</div>
+                    </th>
+                <th scope="col">
+                        <div class="slds-truncate" title="Nivel">Nivel</div>
+                    </th>
+                </tr>
+            <tbody>        
+                <aura:iteration items="{!v.accountList}" var="acc">
+                    <aura:if isTrue="{! acc.nivel__c == 'Nivel 1' }">
+                    <tr>
+                        <th>
+                            <label class="slds-checkbox">
+                                <ui:inputCheckbox aura:id="checkAcc1" text="{!acc.Id}" value="{!acc.checkbox__c}"/>
+                                <span class="slds-checkbox--faux" />
+                                <span class="slds-form-element__label"></span>
+                            </label>
+                        </th>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!acc.Name}">{!acc.Name}</div>
+                        </th>
+                        
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!acc.Phone}">{!acc.Phone}</div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate" title="{!acc.LastModifiedBy.Name}">{!acc.LastModifiedBy.Name}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title="{!acc.nivel__c}">{!acc.nivel__c}</div>
+                        </td>
+                    </tr>
+                  </aura:if>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div> 
+    
+    <div class="slds-m-around_xx-large">
+        <h1 class="slds-text-heading--medium">Cuentas Nivel 2</h1>
+        <br/>
+        <table>
+        	<tr class="slds-text-title--caps">
+                    <th>           
+                        
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Nombre</div>
+                    </th>
+                     <th scope="col">
+                        <div class="slds-truncate" title="Phone">Teléfono</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Ultima Modificacion">Última Modificación</div>
+                    </th>
+                <th scope="col">
+                        <div class="slds-truncate" title="Nivel">Nivel</div>
+                    </th>
+                </tr>
+            <tbody>        
+                <aura:iteration items="{!v.accountList}" var="acc">
+                    <aura:if isTrue="{! acc.nivel__c=='Nivel 2'}">
+                    <tr>
+                        <th>
+                            <label class="slds-checkbox">
+                                <ui:inputCheckbox aura:id="checkAcc2" text="{!acc.Id}" value="{!acc.checkbox__c}"/>
+                                <span class="slds-checkbox--faux" />
+                                <span class="slds-form-element__label"></span>
+                            </label>
+                        </th>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!acc.Name}">{!acc.Name}</div>
+                        </th>
+                        
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!acc.Phone}">{!acc.Phone}</div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate" title="{!acc.LastModifiedBy.Name}">{!acc.LastModifiedBy.Name}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title="{!acc.nivel__c}">{!acc.nivel__c}</div>
+                        </td>
+                    </tr>
+                    </aura:if>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <div>
+            <br/>
+            <lightning:button label="Modificar nivel de cuenta" class="slds-button_brand" onclick="{!c.selectedAcc}"  />
+        </div>
+    </div>
+</aura:component>
